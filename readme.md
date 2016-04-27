@@ -31,6 +31,17 @@ Next add a dependency on __hex__. To do that we must edit the file `hello-haskel
 build-depends:       base >=4.8 && <4.9, hex
 ```
 
+# Warnings and sanity-checking
+The haskell compiler (ghc) has [a number of options](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/options-sanity.html) that select which types of non-fatal error messages, otherwise known as warnings, can be generated during compilation. By default, you get a standard set of warnings which are generally likely to indicate bugs in your program, but with the default you don't get all warnings. 
+
+We should __always__ configure ghc to show all errors when it compiles with the `-Wall` ghc flag. This can be configured in `hello-haskell-hex.cabal`:
+
+```haskell
+GHC-Options:         -Wall
+```
+
+A really great talk is [Haskell: mistakes I made (and how to fix them) by Jasper Van der Jeugt](https://www.youtube.com/watch?v=S3WGPuqfBLg).
+
 ## Main.hs
 Use your favorite editor and create the following file `/src/Main.hs`:
 
